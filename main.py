@@ -54,6 +54,8 @@ class FileCompression7z:
     def parent_directory_prompt(self):
         while(self.dir_loc == ""):
             self.dir_loc = input('Parent target directory of file(s)/folder(s):')
+            self.dir_loc = self.dir_loc.strip("\"")
+
             if(self.dir_loc == ""):
                     print('Target directory cannot be found.')
             else:
