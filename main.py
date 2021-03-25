@@ -43,4 +43,14 @@ else:
             
 
 # %%
-    password_protect = str.lower(input('password protect all files and folders (y/n)? '))
+    password_protect = ""
+    while(password_protect == ""):
+        password_protect = str.lower(input('password protect all files and folders (y/n)? '))
+        if(password_protect == "y" or password_protect == "n"):
+            break
+        else:
+            print('Input must be either "y" or "n"')
+            password_protect = ""
+
+
+# %%
