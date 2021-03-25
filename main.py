@@ -65,7 +65,7 @@ def password_protection_prompts():
             if(password_protect == "y"):           
                 while(password == ""):
                     if(compress == "compress"):
-                        print("Password must be greate than 10 characters, contain one digit, and have at least one of the following characters: !@#$%^&*:<?")
+                        print("Password must be greater than 10 characters, contain one digit, and have at least one of the following characters: !@#$%^&*:<?")
                     
                     password = getpass.getpass("Password (no echo): ")
                     if(compress == "compress"):                    
