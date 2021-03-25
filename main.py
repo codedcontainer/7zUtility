@@ -24,6 +24,7 @@ def check7z():
         input('Press enter to end program: ')
         exit()
 
+
 def compression_prompt():
     compress = ""
     while(compress == ""):
@@ -33,6 +34,7 @@ def compression_prompt():
         else:
             print('Input must be either "compress" or "uncompress"')
             compress = ""
+
 
 def parent_directory_prompt():
     dir_loc = ""
@@ -52,6 +54,7 @@ def parent_directory_prompt():
             except FileNotFoundError:
                 dir_loc = ""
                 print('Taget directory does not exist')
+
 
 def password_protection_prompts():
     password_protect = ""
@@ -87,6 +90,7 @@ def password_protection_prompts():
             print('Input must be either "y" or "n"')
         password_protect = ""
 
+
 def file_compression_actions():
     for file in files:
         if(compress == "compress"):
@@ -116,4 +120,3 @@ compression_prompt()
 parent_directory_prompt()
 password_protection_prompts()
 file_compression_actions()
-
