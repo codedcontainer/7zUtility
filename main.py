@@ -43,3 +43,4 @@ else:
             
 
 # %%
+    password_protect = str.lower(input('password protect all files and folders (y/n)? '))
