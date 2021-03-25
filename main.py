@@ -7,11 +7,11 @@ project_description = """
 *****************************************************************
 |          Python 7z File Compression Utility Program           |
 *****************************************************************
-| Compress each top level directory(s) and/or file(s)           |
-| listed at a specific path location into seperate compressed   | 
-| files without needing to use 7zip commands for each           | 
-| individual item. You will only need to provide one            |
-| password for a collection of items.                           |
+| Compress or uncompress each top level directory(s)            | 
+| and/or file(s) listed at a specific path location into        | 
+| seperate compressed files without needing to use 7zip         |
+| commands for each individual item. You will only need to      | 
+| provide one password for a collection of items.               |
 *****************************************************************
 """
 print(project_description)
@@ -40,7 +40,7 @@ def parent_directory_prompt():
     dir_loc = ""
     files = []
     while(dir_loc == ""):
-        dir_loc = input('Parent target directory of files/folders:')
+        dir_loc = input('Parent target directory of file(s)/folder(s):')
         if(dir_loc == ""):
                 print('Target directory cannot be found.')
         else:
@@ -65,7 +65,7 @@ def password_protection_prompts():
             if(password_protect == "y"):           
                 while(password == ""):
                     if(compress == "compress"):
-                        print("Password must be greater than 10 characters, contain one digit, and have at least one of the following characters: !@#$%^&*:<?")
+                        print("Password must be greater than 10 characters, contain at least one digit, and have at least one of the following characters: !@#$%^&*:<?")
                     
                     password = getpass.getpass("Password (no echo): ")
                     if(compress == "compress"):                    
