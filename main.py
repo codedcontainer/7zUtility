@@ -30,15 +30,10 @@ class FileCompression7z:
         self.password_protection_prompts()
         self.file_compression_actions()      
 
-    def concat_and():
-        if(self.platform == "unix"):
-            self.concat_and = "&&"
-        else:
-            self.concat_and = "&"
-
 
     def print_description(self):
         print(self.project_description)
+
 
     def check7z(self):
         try:
