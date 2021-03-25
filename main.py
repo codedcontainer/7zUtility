@@ -1,5 +1,6 @@
 #%% 
 import os
+import subprocess
 import getpass
 import re
 
@@ -41,12 +42,6 @@ else:
                 dir_loc = ""
                 print('Directory does not exist')
 
-            
-# %%
-
-    os.system(f'cd {dir_loc}')
-
-
 # %%
     password_protect = ""
     password = "" 
@@ -75,8 +70,33 @@ else:
             print('Input must be either "y" or "n"')
             password_protect = ""
 
+#%%
+print(compress)
+
 # %%
+# if compressing
+print(password)
 for file in files:
-    print(file)
+    if(compress == "compress"):
+        file = file.replace(" ", "-")
+        if(re.search('[.]', file) == None):
+            if(password != ""):
+                os.system(f"cd {dir_loc} && 7z a -p'{password}' {file}-encrypted.7z '{file}'")
+            else:
+                os.system(f"cd {dir_loc} && 7z a {file}-encrypted.7z '{file}'")
+        else:
+            file_no_extension = file.split(',')[0]
+            print(file_no_extension)
+            if(password != ""):
+                os.system(f"cd {dir_loc} && 7z a -p'{password}' {file_no_extension}-encrypted.7z '{file}'")
+            else:
+                os.system(f"cd {dir_loc} && 7z a {file_no_extension}-encrypted.7z '{file}'")
+    else:
+        if ".7z" in file:
+            if(password != ""):
+                os.system(f"cd {dir_loc} && 7z x -p'{password}' '{file}'")
+            else:
+                os.system(f"cd {dir_loc} && 7z x '{file}'")
+
 
 # %%
