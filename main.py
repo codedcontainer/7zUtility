@@ -120,19 +120,19 @@ class FileCompression7z:
                 file = file.replace(" ", "-")
                 if(re.search('[.]', file) == None):
                     if(self.password != ""):
-                        os.system(f"7z a -p'{self.password}' {file}-encrypted.7z {file}")        
+                        os.system(f"7z a -p{self.password} {file}-encrypted.7z {file}")        
                     else:
                         os.system(f"7z a {file}-encrypted.7z {file}")                        
                 else:
                     file_no_extension = file.split(',')[0]
                     if(self.password != ""):                                     
-                        os.system(f"7z a -p'{self.password}' {file}-encrypted.7z {file}")
+                        os.system(f"7z a -p{self.password} {file}-encrypted.7z {file}")
                     else:                        
                         os.system(f"7z a {file_no_extension}-encrypted.7z {file}")
             else:
                 if ".7z" in file:
                     if(self.password != ""):                       
-                        os.system(f"7z x -y -p'{self.password}' {file}")
+                        os.system(f"7z x -y -p{self.password} {file}")
                     else:                        
                         os.system(f"7z x -y {file}")
 
