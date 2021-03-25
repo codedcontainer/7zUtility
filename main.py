@@ -2,6 +2,7 @@ import os
 import subprocess
 import getpass
 import re
+import sys
 
 class FileCompression7z:
     project_description = """
@@ -27,7 +28,14 @@ class FileCompression7z:
         self.compression_prompt()
         self.parent_directory_prompt()
         self.password_protection_prompts()
-        self.file_compression_actions()        
+        self.file_compression_actions()      
+
+    def concat_and():
+        if(self.platform == "unix"):
+            self.concat_and = "&&"
+        else:
+            self.concat_and = "&"
+
 
     def print_description(self):
         print(self.project_description)
@@ -105,27 +113,28 @@ class FileCompression7z:
 
 
     def file_compression_actions(self):
+        os.chdir(self.dir_loc)
+        
         for file in self.files:
             if(self.compress == "compress"):
                 file = file.replace(" ", "-")
                 if(re.search('[.]', file) == None):
                     if(self.password != ""):
-                        os.system(f"cd {self.dir_loc} && 7z a -p'{self.password}' {file}-encrypted.7z '{file}'")
+                        os.system(f"7z a -p'{self.password}' {file}-encrypted.7z {file}")        
                     else:
-                        os.system(f"cd {self.dir_loc} && 7z a {file}-encrypted.7z '{file}'")
+                        os.system(f"7z a {file}-encrypted.7z {file}")                        
                 else:
                     file_no_extension = file.split(',')[0]
-                    print(file_no_extension)
-                    if(self.password != ""):
-                        os.system(f"cd {self.dir_loc} && 7z a -p'{self.password}' {file_no_extension}-encrypted.7z '{file}'")
-                    else:
-                        os.system(f"cd {self.dir_loc} && 7z a {file_no_extension}-encrypted.7z '{file}'")
+                    if(self.password != ""):                                     
+                        os.system(f"7z a -p'{self.password}' {file}-encrypted.7z {file}")
+                    else:                        
+                        os.system(f"7z a {file_no_extension}-encrypted.7z {file}")
             else:
                 if ".7z" in file:
-                    if(self.password != ""):
-                        os.system(f"cd {self.dir_loc} && 7z x -y -p'{self.password}' '{file}'")
-                    else:
-                        os.system(f"cd {self.dir_loc} && 7z x -y '{file}'")
+                    if(self.password != ""):                       
+                        os.system(f"7z x -y -p'{self.password}' {file}")
+                    else:                        
+                        os.system(f"7z x -y {file}")
 
 
 FileCompression7z()
