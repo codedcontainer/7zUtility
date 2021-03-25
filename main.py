@@ -24,12 +24,12 @@ else:
 # %%
 
     dir_loc = ""
+    files = []
     while(dir_loc == ""):
         dir_loc = input('Input directory for files/folders compression/uncompression:')
         if(dir_loc == ""):
              print('No input detected. Directory cannot be found.')
         else:
-            files = []
             try:
                 files = os.listdir(dir_loc)
                 if(len(files) == 0):
@@ -42,6 +42,10 @@ else:
                 print('Directory does not exist')
 
             
+# %%
+
+    os.system(f'cd {dir_loc}')
+
 
 # %%
     password_protect = ""
@@ -70,5 +74,9 @@ else:
         else:
             print('Input must be either "y" or "n"')
             password_protect = ""
+
+# %%
+for file in files:
+    print(file)
 
 # %%
