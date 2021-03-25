@@ -2,7 +2,7 @@
 
 ## Description ##
 
-Ability to compress or uncompress each top level directory(s) and/or file(s) listed at specified path location into separate compressed files without needing to use the 7zip commands for each individual item.
+Ability to compress or uncompress each top level directory(s) and/or file(s) listed at specified path location into separate compressed or uncompressed files without needing to use the 7zip commands for each individual item.
 
 ## System Requirements ##
 
