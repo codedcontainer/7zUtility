@@ -121,7 +121,7 @@ class FileCompression7z:
                 else:
                     file_no_extension = file.split(',')[0]
                     if(self.password != ""):                                     
-                        os.system(f"7z a -p{self.password} {file}-encrypted.7z {file}")
+                        os.system(f"7z a -p{self.password} {file_no_extension}-encrypted.7z {file}")
                     else:                        
                         os.system(f"7z a {file_no_extension}.7z {file}")
             else:
